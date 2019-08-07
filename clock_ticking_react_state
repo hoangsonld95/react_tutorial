@@ -24,6 +24,7 @@ class Clock extends React.Component {
     clearInterval(this.timerID);
   }
   
+  // If state changes --> render() was called again 
   tick() {
     this.setState({
       date: new Date()
