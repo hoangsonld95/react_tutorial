@@ -1,10 +1,19 @@
-// function Clock(props) {
-//   return (
-//     <div>
-//       <h1>Current time is {props.date.toLocaleTimeString()}</h1>
-//     </div>
-//   );
-// }
+// - Không sửa state trực tiếp, phải thong qua setState()
+// - State update không đồng bộ 
+// + React có thể gộp nhiều setState() calls thành 1 lời gọi update duy nhất --> this.props và this.state có thể không được update đồng bộ--> không thể sử dụng để calculate state tiếp theo
+
+// Wrong :
+// this.setState({
+//    counter: this.state.counter + this.props.increment, 
+// });
+
+// True :
+// this.setState((state, props) =>({
+//    counter: state.counter+ props.increment
+// }));
+
+// (previous_state => state, props => props at the time of update)
+ 
 
 class Clock extends React.Component {
   constructor(props) {
@@ -40,7 +49,17 @@ class Clock extends React.Component {
   }
 }
 
+function App() {
+  return (
+    <div>
+      <Clock />
+      <Clock />
+      <Clock />
+    </div>
+  );
+}
+
 ReactDOM.render(
-  <Clock />,
+  <App />,
   document.getElementById('root')
 );
