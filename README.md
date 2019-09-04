@@ -112,6 +112,7 @@ ReactDOM.render(
 	- React compares newly created element with existing one, only updates the changing parts.
 	That's why it's efficient. 
 	
+	[Traditional Clock Example](## II. Rendering elements :)
 	```
 	function tick() {
 		const element = (
@@ -311,4 +312,12 @@ ReactDOM.render(
 - **Props are read-only** 
 
 > 	You must not change the props. 
+
+
+------------
+
+# IV. State and life-cycle :
+
+Refer to previous example [Traditional Clock Example](##II.-rendering-elements:)
+
 
