@@ -87,5 +87,43 @@ const element = {
 ```
 
 
+------------
+
+## II. Rendering elements :
+
+- **Element is 1 part of UI** 
+```
+const element = <h1>Big daddy</h1>
+```
+
+- **Rendering 1 element to the DOM :** 
+```
+const element = <h1>Big daddy</h1>;
+ReactDOM.render(
+	element,
+	document.getElementById('root')
+);
+```
+
+- **Updating the rendered DOM :**
+
+	- Unable to change already-created element's internal contents (attributes, children) 
+	So we must create a new element and re-attach it to DOM to replace the existing one 
+	- React compares newly created element with existing one, only updates the changing parts.
+	That's why it's efficient. 
+	
+	```
+	function tick() {
+		const element = (
+			<div>
+				<h1>Current time:</h1>
+				<h2>{new Date().toLocaleTimeString()}</h2>
+			</div>
+		);
+		ReactDOM.render(element, document.getElementById('root'))
+	}
+	setInterval(tick(), 1000)
+	```
+
 
 
